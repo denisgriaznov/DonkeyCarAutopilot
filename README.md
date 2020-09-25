@@ -34,3 +34,4 @@ Next, let's look at the structure of the neural network. In the input, it reciev
 
 The output is for categorical selection. This is logical, but first you can reduce the number of classes from 15 to 9.
 
+## Performance and accuracy tests
