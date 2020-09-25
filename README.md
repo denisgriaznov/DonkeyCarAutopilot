@@ -26,3 +26,7 @@ I took it as a basis.
 
 ## Model tuning
 
+The model used here only predict the steering value, keeping the throttle constant. But on a mountain track, speed does not only depend on the throttle, and there are moments when the car is stationary. In addition to being pointless, it also has a negative impact on training, as the agent is rewarded all the time.
+
+The obvious solution is to set the PID controller to speed, which I did. I also noticed that the speed when moving backward returns without minus, so I limited the pid to zero.
+
