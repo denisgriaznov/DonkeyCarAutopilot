@@ -42,8 +42,41 @@ To fix this I set the PID controller to the speed value from the info.
     ....
     throttle = pid(info.get('speed'))
 
+This way the speed is kept constant. After training the agent for 10,000 episodes, an unsatisfactory result was obtained:
+
+Possible ways to improve:
+
+- replace gray with selection of lines, for example Canny
+- limit the steering wheel turn to values -0.5 and 0.5
+- change the policy to a more flexible one (non-linear decrease epsilon)
+
+Alternatively, you can try supervised learning. I created a script that adjusts both the speed and distance from the middle of the road using pid, and then collects a dataset from these values and the corresponding images:
+
+https://github.com/denisgriaznov/DonkeyCarAutopilot/blob/master/code/data_collect.py
+
+You can try to train this to predict the distance to the center or the desired angle of rotation.
+
+
 
 ## PPO
+
+
+Since the example used a very simple policy of the relationship between exploitation and exploitation (epsilon gradually decreased and represented the probability of an exploitation step), let's try using PPO.
+
+Here I also used a convolutional neural network to process state, however out of the box library stable-baselines.
+
+    model = PPO2(CnnPolicy, env, verbose=1)
+
+The model was trained for 10,000 steps (about 80 episodes)
+Result:
+
+Then I started two cars at the same time as a simulated competition. And two models were trained at 50,000 steps.
+Result:
+
+Possible ways to improve:
+
+- adjust the speed, as the cars go very slowly
+- try the cnn policy as the solution may depend on the sequence of frames
 
 ## Tests
 
