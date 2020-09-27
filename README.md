@@ -107,7 +107,7 @@ Distribution of episode length for 50 episodes:
 ![stop](/images/lendist.png)
 
 
-
+Unfortunately, even long duration and rewards do not indicate success, as they can be obtained by "cheating".
 
 ## Resume
 
