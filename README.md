@@ -46,7 +46,7 @@ This way the speed is kept constant.
 
 Each step is either exploration (random steering position) or exploitation (predicting the current model based on the image). For each step, the model gives out the steering position and then receives a reward. When the episode ends, the model's weights change depending on the amount of the reward. Over time, the probability of exploitation (epsilon) decreases linearly.
 
-After training the agent for 10,000 episodes, an unsatisfactory result was obtained:
+After training the agent for 10,000 episodes, unsatisfactory result was obtained:
 
 ![stop](/images/testddqn.gif)
 
