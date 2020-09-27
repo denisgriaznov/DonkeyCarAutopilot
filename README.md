@@ -67,7 +67,7 @@ You can try to train this to predict the distance to the center or the desired a
 ## PPO
 
 
-Since the first example used a very simple policy of the relationship between exploitation and exploitation (epsilon gradually decreased and represented the probability of an exploitation step), let's try using PPO.
+Since the first example used a very simple policy of the relationship between exploitation and exploitation (epsilon gradually decreased and represented the probability of an exploitation step), let's try using PPO. This is a more adaptive algorithm that will smooth out the change in balance at each step.
 
 https://openai.com/blog/openai-baselines-ppo/
 
