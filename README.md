@@ -21,3 +21,16 @@ This project uses the track 'donkey-mountain-track-v0'. Unlike the others, it ha
 Examples from the repository are taken as a basis:
 
 https://github.com/tawnkramer/gym-donkeycar/tree/master/examples/reinforcement_learning
+
+## DDQN
+
+Since the input of the model is an image, it is logical to use a convolutional neural network as a model.
+I built the model like this:
+
+#### Input(120,120,4) -> Conv2d(64) -> Conv2d(64) -> Conv2d(128) -> Conv2d(128) -> Dense(512) -> Output(9)
+
+## PPO
+
+## Tests
+
+## Resume
