@@ -31,7 +31,7 @@ I built the model like this:
 
 4 consecutive frames in gray mode are fed to the input. The output represents 9 categories of different steering positions. The throttle is supposed to be kept constant. But on a mountain track, this leads to a stop:
 
-(IMAGE STOPP)
+![stop](/images/zerospeed.gif)
 
 Firstly, this is bad for itself, and secondly, the agent is charged a large reward, since the car does not crash anywhere.
 
