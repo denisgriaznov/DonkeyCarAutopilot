@@ -231,7 +231,7 @@ def run_ddqn():
 
             s_t = np.stack((x_t,x_t,x_t,x_t),axis=2)
             # In Keras, need to reshape
-            s_t = s_t.reshape(1, s_t.shape[0], s_t.shape[1], s_t.shape[2]) #1*80*80*4
+            s_t = s_t.reshape(1, s_t.shape[0], s_t.shape[1], s_t.shape[2]) 
 
             while not done:
 
@@ -244,8 +244,8 @@ def run_ddqn():
 
                 x_t1 = agent.process_image(next_obs)
 
-                x_t1 = x_t1.reshape(1, x_t1.shape[0], x_t1.shape[1], 1) #1x80x80x1
-                s_t1 = np.append(x_t1, s_t[:, :, :, :3], axis=3) #1x80x80x4
+                x_t1 = x_t1.reshape(1, x_t1.shape[0], x_t1.shape[1], 1) 
+                s_t1 = np.append(x_t1, s_t[:, :, :, :3], axis=3) 
                 agent.replay_memory(s_t, np.argmax(linear_bin(steering)), reward, s_t1, done)
                 agent.update_epsilon()
 
