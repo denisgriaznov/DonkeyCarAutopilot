@@ -116,3 +116,8 @@ The main problem for this unsupervised learning model is how the reward is calcu
 - speed
 - driving directions
 - traversed path in the right direction
+
+I also ran into some minor technical difficulties. For example, gym-donkeycar does not return a negative value when moving backward, as they say in their documentation.
+Also, the mountain track is present in the only (not the last) release of donkeycar:
+
+https://github.com/tawnkramer/gym-donkeycar/releases/tag/v2020.5.16
