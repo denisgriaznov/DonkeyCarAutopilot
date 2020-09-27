@@ -88,7 +88,7 @@ Result:
 Possible ways to improve:
 
 - control the speed, as the cars go very slowly
-- try the cnn policy as the solution may depend on the sequence of frames
+- try the CNN-LSTM policy as the solution may depend on the sequence of frames
 
 ## Tests
 
