@@ -1,0 +1,4 @@
+simple-pid== 0.2.4
+gym-donkeycar=1.0.16
+gym==0.17.2
+stable-baselines==2.10.1
