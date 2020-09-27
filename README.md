@@ -44,6 +44,8 @@ To fix this I set the PID controller to the speed value from the info.
 
 This way the speed is kept constant. After training the agent for 10,000 episodes, an unsatisfactory result was obtained:
 
+![stop](/images/zerospeed.gif)
+
 Possible ways to improve:
 
 - replace gray with selection of lines, for example Canny
