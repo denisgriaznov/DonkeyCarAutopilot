@@ -44,7 +44,7 @@ To fix this I set the PID controller to the speed value from the info.
 
 This way the speed is kept constant. After training the agent for 10,000 episodes, an unsatisfactory result was obtained:
 
-![stop](/images/zerospeed.gif)
+![stop](/images/testddqn.gif)
 
 Possible ways to improve:
 
@@ -74,8 +74,12 @@ Here I also used a convolutional neural network to process state, however out of
 The model was trained for 10,000 steps (about 80 episodes)
 Result:
 
+![stop](/images/testppo.gif)
+
 Then I started two cars at the same time as a simulated competition. And two models were trained at 50,000 steps.
 Result:
+
+![stop](/images/testcompetition.gif)
 
 Possible ways to improve:
 
@@ -88,9 +92,15 @@ Here I provide test results for single movement using PPO2
 
 Distribution of time for one step im ms:
 
+![stop](/images/timedist.png)
+
 Distribution of reward summ for 50 episodes:
 
+![stop](/images/rewarddist.png)
+
 Distribution of episode length for 50 episodes:
+
+![stop](/images/lenedist.png)
 
 
 
