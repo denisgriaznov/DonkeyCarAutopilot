@@ -50,7 +50,7 @@ Possible ways to improve:
 - limit the steering wheel turn to values -0.5 and 0.5
 - change the policy to a more flexible one (non-linear decrease epsilon)
 
-Alternatively, you can try supervised learning. I created a script that adjusts both the speed and distance from the middle of the road using pid, and then collects a dataset from these values and the corresponding images:
+Alternatively, you can try supervised learning. I created a script that control both the speed and distance from the middle of the road using pid, and then collects a dataset from these values and the corresponding images:
 
 https://github.com/denisgriaznov/DonkeyCarAutopilot/blob/master/code/data_collect.py
 
@@ -61,7 +61,9 @@ You can try to train this to predict the distance to the center or the desired a
 ## PPO
 
 
-Since the example used a very simple policy of the relationship between exploitation and exploitation (epsilon gradually decreased and represented the probability of an exploitation step), let's try using PPO.
+Since the first example used a very simple policy of the relationship between exploitation and exploitation (epsilon gradually decreased and represented the probability of an exploitation step), let's try using PPO.
+
+https://openai.com/blog/openai-baselines-ppo/
 
 Here I also used a convolutional neural network to process state, however out of the box library stable-baselines.
 
@@ -75,9 +77,20 @@ Result:
 
 Possible ways to improve:
 
-- adjust the speed, as the cars go very slowly
+- control the speed, as the cars go very slowly
 - try the cnn policy as the solution may depend on the sequence of frames
 
 ## Tests
+
+Here I provide test results for single movement using PPO2
+
+Distribution of time for one step im ms:
+
+Distribution of reward summ for 50 episodes:
+
+Distribution of episode length for 50 episodes:
+
+
+
 
 ## Resume
