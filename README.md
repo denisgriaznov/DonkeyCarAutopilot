@@ -42,7 +42,11 @@ To fix this I set the PID controller to the speed value from the info.
     ....
     throttle = pid(info.get('speed'))
 
-This way the speed is kept constant. After training the agent for 10,000 episodes, an unsatisfactory result was obtained:
+This way the speed is kept constant. 
+
+Each step is either exploration (random steering position) or exploitation (predicting the current model based on the image). For each step, the model gives out the steering position and then receives a reward. When the episode ends, the model's weights change depending on the amount of the reward. Over time, the probability of exploitation (epsilon) decreases linearly.
+
+After training the agent for 10,000 episodes, an unsatisfactory result was obtained:
 
 ![stop](/images/testddqn.gif)
 
@@ -100,9 +104,15 @@ Distribution of reward summ for 50 episodes:
 
 Distribution of episode length for 50 episodes:
 
-![stop](/images/lenedist.png)
+![stop](/images/lendist.png)
 
 
 
 
 ## Resume
+
+The main problem for this unsupervised learning model is how the reward is calculated. So, the agent will receive a reward if he drives around him or stands still. It would be nice to revise the procedure for receiving rewards depending on:
+
+- speed
+- driving directions
+- traversed path in the right direction
