@@ -82,9 +82,9 @@ if __name__ == "__main__":
                 timetest.close()
 
             if dones:
-                perftest = open('perftest.txt', 'a')
-                perftest.write(str(rewardsum[0])+","+str(episodelen)+"\n")
-                perftest.close()
+                acctest = open('acctest.txt', 'a')
+                acctest.write(str(rewardsum[0])+","+str(episodelen)+"\n")
+                acctest.close()
                 rewardsum = 0
                 episodelen = 0
                 episodes = episodes + 1
