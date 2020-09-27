@@ -29,6 +29,22 @@ I built the model like this:
 
 #### Input(120,120,4) -> Conv2d(64) -> Conv2d(64) -> Conv2d(128) -> Conv2d(128) -> Dense(512) -> Output(9)
 
+4 consecutive frames in gray mode are fed to the input. The output represents 9 categories of different steering positions. The throttle is supposed to be kept constant. But on a mountain track, this leads to a stop:
+
+(IMAGE STOPP)
+
+Firstly, this is bad for itself, and secondly, the agent is charged a large reward, since the car does not crash anywhere.
+
+To fix this I set the PID controller to the speed value from the info.
+
+.. code-block:: python
+
+    pid = PID(1, 0.1, 0.1, setpoint=SPEED_SETPOINT)
+    pid.output_limits = (0, 1)
+    ....
+    throttle = pid(info.get('speed'))
+
+
 ## PPO
 
 ## Tests
