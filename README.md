@@ -37,8 +37,6 @@ Firstly, this is bad for itself, and secondly, the agent is charged a large rewa
 
 To fix this I set the PID controller to the speed value from the info.
 
-.. code-block:: python
-
     pid = PID(1, 0.1, 0.1, setpoint=SPEED_SETPOINT)
     pid.output_limits = (0, 1)
     ....
