@@ -22,18 +22,28 @@ from tensorflow.keras import backend as K
 
 
 EPISODES = 10000
+
+# Max square resolution is 120
 img_rows, img_cols = 120, 120
+
+# Use remote or change path
 SIM_PATH = "C:\\Users\\Denis\\Desktop\\GymCarControl\\DonkeySimWin_Last\\donkey_sim.exe"
 #SIM_PATH = "remote"
+
 PORT = 9091
 ENV_NAME = 'donkey-mountain-track-v0'
 IS_TRAIN = False
+
+#Set speed setpoint for PID
 THROTTLE = 0.3
 SPEED_SETPOINT = 5.0
+
 MODEL_NAME = "rl_driver.h5"
+
+# Customized bins count
 CTGR_COUNT = 9
-# Convert image into Black and white
-img_channels = 4 # We stack 4 frames
+
+img_channels = 4 
 
 class DQNAgent:
 
@@ -41,9 +51,7 @@ class DQNAgent:
         self.t = 0
         self.max_Q = 0
         self.train = train
-        # Get size of state and action
         self.action_space = action_space
-        # These are hyper parameters for the DQN
         self.discount_factor = 0.99
         self.learning_rate = 1e-4
         if (self.train):
@@ -69,7 +77,7 @@ class DQNAgent:
 
     def build_model(self):
         model = Sequential()
-        model.add(Conv2D(64, (5, 5), strides=(2, 2), padding="same",input_shape=(img_rows,img_cols,img_channels)))  #80*80*4
+        model.add(Conv2D(64, (5, 5), strides=(2, 2), padding="same",input_shape=(img_rows,img_cols,img_channels)))  #120*120*4
         model.add(Activation('relu'))
         model.add(Conv2D(64, (5, 5), strides=(2, 2), padding="same"))
         model.add(Activation('relu'))
@@ -81,7 +89,7 @@ class DQNAgent:
         model.add(Dense(512))
         model.add(Activation('relu'))
 
-        # 15 categorical bins for Steering angles
+        # 9 categorical bins for steering angles
         model.add(Dense(CTGR_COUNT, activation="linear"))
 
         adam = Adam(lr=self.learning_rate)
@@ -154,6 +162,8 @@ class DQNAgent:
     def save_model(self, name):
         self.model.save_weights(name)
 
+# bin and unbin functions in general view
+
 def linear_bin(a):
     a = a + 1
     b = round(a / (2 / (CTGR_COUNT-1)))
@@ -171,10 +181,6 @@ def linear_unbin(arr):
 
 
 def run_ddqn():
-    '''
-    run a DDQN training session, or test it's result, with the donkey simulator
-    '''
-
     # only needed if TF==1.13.1
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True
