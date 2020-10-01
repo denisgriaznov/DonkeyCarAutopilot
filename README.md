@@ -48,7 +48,7 @@ Each step is either exploration (random steering position) or exploitation (pred
 
 After training the agent for 10,000 episodes, unsatisfactory result was obtained:
 
-![stop](/images/testddqn.gif)
+![ddqn](/images/testddqn.gif)
 
 Possible ways to improve:
 
@@ -78,12 +78,12 @@ Here I also used a convolutional neural network to process state, however out of
 The model was trained for 10,000 steps (about 80 episodes)
 Result:
 
-![stop](/images/testppo.gif)
+![ppo](/images/testppo.gif)
 
 Then I started two cars at the same time as a simulated competition. And two models were trained at 50,000 steps.
 Result:
 
-![stop](/images/testcompetition.gif)
+![ppocompetition](/images/testcompetition.gif)
 
 Possible ways to improve:
 
@@ -96,15 +96,15 @@ Here I provide test results for single movement using PPO2
 
 Distribution of time for one step im ms:
 
-![stop](/images/timedist.png)
+![time](/images/timedist.png)
 
 Distribution of reward summ for 50 episodes:
 
-![stop](/images/rewarddist.png)
+![reward](/images/rewarddist.png)
 
 Distribution of episode length for 50 episodes:
 
-![stop](/images/lendist.png)
+![len](/images/lendist.png)
 
 
 Unfortunately, even long duration and rewards do not indicate success, as they can be obtained by "cheating".
